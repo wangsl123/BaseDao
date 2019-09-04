@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SongMapper">
+  <resultMap id="BaseResultMap" type="model.Song">
+    <id column="srid" jdbcType="INTEGER" property="srid" />
+    <result column="srname" jdbcType="VARCHAR" property="srname" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="is_hot" jdbcType="INTEGER" property="isHot" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    srid, srname, intro, pic, is_hot
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from song
+    where srid = #{srid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from song
+    where srid = #{srid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.Song">
+    insert into song (srid, srname, intro, 
+      pic, is_hot)
+    values (#{srid,jdbcType=INTEGER}, #{srname,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=VARCHAR}, #{isHot,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Song">
+    insert into song
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="srid != null">
+        srid,
+      </if>
+      <if test="srname != null">
+        srname,
+      </if>
+      <if test="intro != null">
+        intro,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="srid != null">
+        #{srid,jdbcType=INTEGER},
+      </if>
+      <if test="srname != null">
+        #{srname,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Song">
+    update song
+    <set>
+      <if test="srname != null">
+        srname = #{srname,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=INTEGER},
+      </if>
+    </set>
+    where srid = #{srid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Song">
+    update song
+    set srname = #{srname,jdbcType=VARCHAR},
+      intro = #{intro,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      is_hot = #{isHot,jdbcType=INTEGER}
+    where srid = #{srid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="model.Song">
+    <id column="srid" jdbcType="INTEGER" property="srid" />
+    <result column="srname" jdbcType="VARCHAR" property="srname" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="is_hot" jdbcType="INTEGER" property="isHot" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    srid, srname, intro, pic, is_hot
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from song
+    where srid = #{srid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from song
+    where srid = #{srid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.Song">
+    insert into song (srid, srname, intro, 
+      pic, is_hot)
+    values (#{srid,jdbcType=INTEGER}, #{srname,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=VARCHAR}, #{isHot,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Song">
+    insert into song
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="srid != null">
+        srid,
+      </if>
+      <if test="srname != null">
+        srname,
+      </if>
+      <if test="intro != null">
+        intro,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="srid != null">
+        #{srid,jdbcType=INTEGER},
+      </if>
+      <if test="srname != null">
+        #{srname,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Song">
+    update song
+    <set>
+      <if test="srname != null">
+        srname = #{srname,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=INTEGER},
+      </if>
+    </set>
+    where srid = #{srid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Song">
+    update song
+    set srname = #{srname,jdbcType=VARCHAR},
+      intro = #{intro,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      is_hot = #{isHot,jdbcType=INTEGER}
+    where srid = #{srid,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="model.Song">
+    <id column="srid" jdbcType="INTEGER" property="srid" />
+    <result column="srname" jdbcType="VARCHAR" property="srname" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="is_hot" jdbcType="INTEGER" property="isHot" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    srid, srname, intro, pic, is_hot
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from song
+    where srid = #{srid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from song
+    where srid = #{srid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="model.Song">
+    insert into song (srid, srname, intro, 
+      pic, is_hot)
+    values (#{srid,jdbcType=INTEGER}, #{srname,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=VARCHAR}, #{isHot,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="model.Song">
+    insert into song
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="srid != null">
+        srid,
+      </if>
+      <if test="srname != null">
+        srname,
+      </if>
+      <if test="intro != null">
+        intro,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="isHot != null">
+        is_hot,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="srid != null">
+        #{srid,jdbcType=INTEGER},
+      </if>
+      <if test="srname != null">
+        #{srname,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null">
+        #{isHot,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.Song">
+    update song
+    <set>
+      <if test="srname != null">
+        srname = #{srname,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null">
+        is_hot = #{isHot,jdbcType=INTEGER},
+      </if>
+    </set>
+    where srid = #{srid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.Song">
+    update song
+    set srname = #{srname,jdbcType=VARCHAR},
+      intro = #{intro,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      is_hot = #{isHot,jdbcType=INTEGER}
+    where srid = #{srid,jdbcType=INTEGER}
+  </update>
+</mapper>
